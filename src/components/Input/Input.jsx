@@ -1,5 +1,6 @@
 import styles from "./Input.module.scss";
-import { useEffect, useState } from "react";
+import classNames from "classnames";
+
 export function Input({
   label,
   name,
@@ -10,26 +11,14 @@ export function Input({
   type = "text",
   error = "",
 }) {
-  const [classes, setClasses] = useState([styles.field]);
-  useEffect(() => {
-    //add textarea class if textarea
-    if (textarea && !classes.includes(styles["field--textarea"])) {
-      setClasses([...classes, styles["field--textarea"]]);
-    }
-    //add invalid class if error
-    if (isError && !classes.includes(styles["field--invalid"])) {
-      setClasses([...classes, styles["field--invalid"]]);
-    }
-    //remove invalid class if not error
-    if (!isError && classes.includes(styles["field--invalid"])) {
-      setClasses(
-        [...classes].filter((item) => item !== styles["field--invalid"])
-      );
-    }
-  }, [textarea, isError, classes, setClasses]);
-
   return (
-    <div className={classes.join(" ")}>
+    <div
+      className={classNames(
+        styles.field,
+        isError && styles["field--invalid"],
+        textarea && styles["field--textarea"]
+      )}
+    >
       <label htmlFor={name}>{label}</label>
       {!textarea ? (
         <input

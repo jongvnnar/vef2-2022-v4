@@ -1,4 +1,5 @@
 import styles from "./Button.module.scss";
+import classNames from "classnames";
 export function Button({ onClick, children, margin = false, large = false }) {
   const classes = [
     styles.button,
@@ -6,7 +7,14 @@ export function Button({ onClick, children, margin = false, large = false }) {
     large ? styles["button--large"] : "",
   ];
   return (
-    <button className={classes.join(" ")} onClick={onClick}>
+    <button
+      className={classNames(
+        styles.button,
+        margin && styles["button--margin"],
+        large && styles["button--large"]
+      )}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
