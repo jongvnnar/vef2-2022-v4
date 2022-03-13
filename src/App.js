@@ -5,7 +5,7 @@ import { NotFound } from "./pages/NotFound";
 import { Index } from "./pages/Index";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import React, { createContext, useState, useEffect } from "react";
-import { Login } from "./components/Login/Login";
+import { Footer } from "./components/Footer/Footer";
 export const AuthContext = createContext({ user: null, setUser: null });
 function App() {
   //Ákvað að geyma user líka í localStorage sem frekar shitty "persistance", user viðheldur sig við reload.
@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Layout title="Viðburðasíðan" footer={<Login />} />}
+            element={<Layout title="Viðburðasíðan" footer={<Footer />} />}
           >
             <Route index element={<Index />} />
             <Route path="login" element={<LoginPage />} />

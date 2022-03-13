@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./Events.module.scss";
+import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
+
 export function Event({ event }) {
   const [registrations, setRegistrations] = useState([]);
   useEffect(() => {
@@ -43,6 +45,10 @@ export function Event({ event }) {
           </ul>
         )}
       </div>
+      <RegistrationForm
+        registrations={registrations}
+        setRegistrations={setRegistrations}
+      />
       <Link className="link" to="/">
         Til baka
       </Link>

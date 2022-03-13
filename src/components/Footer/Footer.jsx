@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../App";
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
-import styles from "./Login.module.scss";
+import styles from "./Footer.module.scss";
 const FAKE_USER = "test";
-export function Login() {
+export function Footer() {
   const { user, setUser } = useContext(AuthContext);
   console.log(user);
   if (user) {
