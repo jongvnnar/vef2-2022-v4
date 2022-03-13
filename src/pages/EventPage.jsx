@@ -36,7 +36,6 @@ export function EventPage() {
       } finally {
         setLoading(false);
       }
-      console.log(json);
       setEvent(json);
     }
     fetchData();
