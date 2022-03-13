@@ -16,13 +16,13 @@ export function Event({ event }) {
   return (
     <section>
       <div className={styles.event__info}>
-        <h1 className={styles.event__title}>{event.name}</h1>
-        <p className={styles.event__description}>{event.description}</p>
+        <h2 className={styles.event__title}>{event.name}</h2>
+        <p className={styles.event__subtitle}>{event.description}</p>
       </div>
 
-      <div>
+      <div className={styles.event__registered}>
         {registrations.length === 0 ? (
-          <p>Engin hefur skráð sig á þennan viðburð</p>
+          <p>Enginn hefur skráð sig á þennan viðburð</p>
         ) : (
           <ul>
             {registrations.map((entry, index) => {

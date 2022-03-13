@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function LoginPage() {
   return (
     <section>
-      <h1>Innskráning</h1>
+      <h2>Innskráning</h2>
       <LoginForm />
       <Link to="/" className="link">
         Til baka
