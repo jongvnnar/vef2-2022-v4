@@ -7,6 +7,7 @@ export function Input({
   setValue,
   isError = false,
   textarea = false,
+  type = "text",
 }) {
   const [classes, setClasses] = useState([styles.field]);
   useEffect(() => {
@@ -16,13 +17,18 @@ export function Input({
     if (isError && !classes.includes(styles["field--invalid"])) {
       setClasses([...classes, styles["field--invalid"]]);
     }
+    if (!isError && classes.includes(styles["field--invalid"])) {
+      setClasses(
+        [...classes].filter((item) => item !== styles["field--invalid"])
+      );
+    }
   }, [textarea, isError, classes, setClasses]);
   return (
     <div className={classes.join(" ")}>
       <label htmlFor={name}>{label}</label>
       {!textarea ? (
         <input
-          type="text"
+          type={type}
           name={name}
           id={name}
           value={value}
