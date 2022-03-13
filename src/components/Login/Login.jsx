@@ -1,62 +1,27 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../App";
-import { Form } from "../Form/Form";
-import { Input } from "../Input/Input";
-
+import { Button } from "../Button/Button";
+import { Link } from "react-router-dom";
+import styles from "./Login.module.scss";
+const FAKE_USER = "test";
 export function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  // VALIDATION //
-  const [nameError, setNameError] = useState("");
-  const [passError, setPassError] = useState("");
-  const { setUser } = useContext(AuthContext);
-  const validateUsername = (input) => {
-    if (!input || input.length > 64) {
-      setNameError("Notendanafns er krafist, hámark 64 stafir");
-      return false;
-    } else {
-      setNameError("");
-      return true;
-    }
-  };
-  const validatePassword = (password) => {
-    if (!password || password.length > 256) {
-      setPassError("Lykilorðs er krafist, hámark 64 stafir");
-      return false;
-    } else {
-      setPassError("");
-      return true;
-    }
-  };
-
-  //Leyfi að 'skrá inn' en það gerir ekkert nema breyta notendanafni.
-  const onSubmit = () => {
-    const validUser = validateUsername(username);
-    const validPassword = validatePassword(password);
-    if (!validUser || !validPassword) return;
-    setUser(username);
-  };
-
+  const { user, setUser } = useContext(AuthContext);
+  if (user) {
+    return (
+      <>
+        <p className={styles.user__loggedin}>
+          Innskráður sem: <strong>{user}</strong>
+        </p>
+        <Button onClick={() => setUser(null)}>Útskrá</Button>
+      </>
+    );
+  }
   return (
-    <Form onSubmit={onSubmit} buttonName="Innskrá">
-      <Input
-        label="Notendanafn"
-        name="username"
-        value={username}
-        setValue={setUsername}
-        isError={!!nameError}
-        error={nameError}
-      />
-      <Input
-        label="Lykilorð"
-        name="password"
-        value={password}
-        setValue={setPassword}
-        type="password"
-        isError={!!passError}
-        error={passError}
-      />
-    </Form>
+    <>
+      <Link to="/login">Innskráning</Link>
+      <Button onClick={() => setUser(FAKE_USER)} margin>
+        Nýskráning
+      </Button>
+    </>
   );
 }
