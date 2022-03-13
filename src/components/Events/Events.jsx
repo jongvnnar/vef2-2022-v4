@@ -8,11 +8,8 @@ export function Events({ events }) {
         <ul>
           {events.map((event) => {
             return (
-              <li className={styles.events__event}>
-                <Link
-                  to={`/${event.slug}`}
-                  className={styles.events__eventLink}
-                >
+              <li key={event.id} className={styles.events__event}>
+                <Link to={`/${event.id}`} className={styles.events__eventLink}>
                   {event.name}
                 </Link>
                 <p className={styles.events__eventDescription}>
