@@ -6,7 +6,6 @@ import styles from "./Footer.module.scss";
 const FAKE_USER = "test";
 export function Footer() {
   const { user, setUser } = useContext(AuthContext);
-  console.log(user);
   if (user) {
     return (
       <>
