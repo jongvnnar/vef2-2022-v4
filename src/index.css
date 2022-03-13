@@ -43,7 +43,6 @@ section {
 
 /** LINKUR **/
 .link {
-  border-top: 1px solid var(--color-accent-dark);
   margin-top: 3rem;
   padding-top: 1rem;
 }

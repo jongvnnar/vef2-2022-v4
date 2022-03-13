@@ -1,3 +1,3 @@
 export function Events() {
-    return <p>Events!</p>
+  return <p>Events!</p>;
 }

@@ -1,23 +1,40 @@
-import logo from "./logo.svg";
-
+import { Layout } from "./components/Layout/Layout";
+import { EventPage } from "./pages/EventPage";
+import { LoginPage } from "./pages/LoginPage";
+import { NotFound } from "./pages/NotFound";
+import { Index } from "./pages/Index";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import React, { createContext, useState, useEffect } from "react";
+import { Login } from "./components/Login/Login";
+export const AuthContext = createContext({ user: null, setUser: null });
 function App() {
+  //Ákvað að geyma user líka í localStorage sem frekar shitty "persistance", user viðheldur sig við reload.
+  const [user, setUser] = useState(localStorage.getItem("user"));
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", user);
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<Layout title="Viðburðasíðan" footer={<Login />} />}
+          >
+            <Route index element={<Index />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path=":id" element={<EventPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 

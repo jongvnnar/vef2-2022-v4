@@ -1,3 +1,3 @@
-export function LoginPage(){
-    return <h1>LoginPage!</h1>
+export function LoginPage() {
+  return <h1>Login!</h1>;
 }
