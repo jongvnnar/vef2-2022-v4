@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { RegistrationForm } from "../components/RegistrationForm/RegistrationForm";
 import "@testing-library/jest-dom";
 import { render, screen, USERNAME } from "./utils";

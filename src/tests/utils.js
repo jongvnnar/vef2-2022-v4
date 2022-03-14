@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { render } from "@testing-library/react";
 import { AuthContext } from "../App";
-export const USERNAME = "testUser";
+import { BrowserRouter } from "react-router-dom";
+export const USERNAME = "test";
 const AllTheProviders = ({ children }) => {
   const [user, setUser] = useState(USERNAME);
   return (
     <AuthContext.Provider value={{ user, setUser }}>
-      {children}
+      <BrowserRouter>{children}</BrowserRouter>
     </AuthContext.Provider>
   );
 };
