@@ -22,7 +22,7 @@ export function LoginForm() {
   };
   const validatePassword = (password) => {
     if (!password || password.length > 256) {
-      setPassError("Lykilorðs er krafist, hámark 64 stafir");
+      setPassError("Lykilorðs er krafist, hámark 256 stafir");
       return false;
     } else {
       setPassError("");

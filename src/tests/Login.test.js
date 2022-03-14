@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Login } from "../components/Login/Login";
 import "@testing-library/jest-dom";
 import { render, screen, USERNAME } from "./utils";
-import { MemoryRouter } from "react-router-dom";
-import { fireEvent } from "@testing-library/react";
+
 describe("Login footer", () => {
   test("displays text and button", () => {
     render(<Login />);
