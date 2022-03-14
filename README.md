@@ -3,7 +3,7 @@
 ## Hlekkir
 Lausnin keyrir á [heroku](https://dashboard.heroku.com/apps/jgh-vef2-verk4).
 
-Bakendi fyrir þetta app er [sýnilausn á verkefni 3](https://vef2-20222-v3-synilausn.herokuapp.com/).
+Vefþjónusta fyrir þetta app er [sýnilausn á verkefni 3](https://vef2-20222-v3-synilausn.herokuapp.com/).
 
 ## Uppsetning .env 
 Til að keyra appið skal fyrst setja upp .env.local skrá með eftirfarandi innihaldi:
