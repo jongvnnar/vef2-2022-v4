@@ -1,7 +1,7 @@
 # Vefforritun 2, verkefni 4
 
 ## Hlekkir
-Lausnin keyrir á [heroku](https://dashboard.heroku.com/apps/jgh-vef2-verk4).
+Lausnin keyrir á [heroku](https://jgh-vef2-verk4.herokuapp.com/).
 
 Vefþjónusta fyrir þetta app er [sýnilausn á verkefni 3](https://vef2-20222-v3-synilausn.herokuapp.com/).
 
